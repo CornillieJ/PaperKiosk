@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install guide · PaperKiosk</title>
+<meta name="description" content="A calm, always-on Home Assistant control panel made for e-ink: a KUAL extension, a page for any browser, or a URL for your e-paper dashboard. Open source.">
+<meta property="og:title" content="Install guide · PaperKiosk">
+<meta property="og:description" content="A calm, always-on Home Assistant control panel made for e-ink. Open source.">
+<meta property="og:image" content="https://www.stormwolf.space/paperkiosk/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.stormwolf.space/paperkiosk/install.html">
+<link rel="canonical" href="https://www.stormwolf.space/paperkiosk/install.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fff8f1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='16' fill='%23f2efe8' stroke='%232a2433' stroke-width='5'/%3E%3Cpath d='M21 44c-2 0-4-2-4-5V21l7 6c5-2 11-2 16 0l7-6v18c0 3-2 5-4 5z' fill='%232a2433'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- sprite:start -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-cat" viewBox="0 0 24 24"><path d="M12,8L10.67,8.09C9.81,7.07 7.4,4.5 5,4.5C5,4.5 3.03,7.46 4.96,11.41C4.41,12.24 4.07,12.67 4,13.66L2.07,13.95L2.28,14.93L4.04,14.67L4.18,15.38L2.61,16.32L3.08,17.21L4.53,16.32C5.68,18.76 8.59,20 12,20C15.41,20 18.32,18.76 19.47,16.32L20.92,17.21L21.39,16.32L19.82,15.38L19.96,14.67L21.72,14.93L21.93,13.95L20,13.66C19.93,12.67 19.59,12.24 19.04,11.41C20.97,7.46 19,4.5 19,4.5C16.6,4.5 14.19,7.07 13.33,8.09L12,8M9,11A1,1 0 0,1 10,12A1,1 0 0,1 9,13A1,1 0 0,1 8,12A1,1 0 0,1 9,11M15,11A1,1 0 0,1 16,12A1,1 0 0,1 15,13A1,1 0 0,1 14,12A1,1 0 0,1 15,11M11,14H13L12.3,15.39C12.5,16.03 13.06,16.5 13.75,16.5A1.5,1.5 0 0,0 15.25,15H15.75A2,2 0 0,1 13.75,17C13,17 12.35,16.59 12,16V16H12C11.65,16.59 11,17 10.25,17A2,2 0 0,1 8.25,15H8.75A1.5,1.5 0 0,0 10.25,16.5C10.94,16.5 11.5,16.03 11.7,15.39L11,14Z"/></symbol><symbol id="i-content-copy" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></symbol><symbol id="i-folder-outline" viewBox="0 0 24 24"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"/></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/></symbol><symbol id="i-information-outline" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></symbol><symbol id="i-monitor-cellphone" viewBox="0 0 24 24"><path d="M23,11H18A1,1 0 0,0 17,12V21A1,1 0 0,0 18,22H23A1,1 0 0,0 24,21V12A1,1 0 0,0 23,11M23,20H18V13H23V20M20,2H2C0.89,2 0,2.89 0,4V16A2,2 0 0,0 2,18H9V20H7V22H15V20H13V18H15V16H2V4H20V9H22V4C22,2.89 21.1,2 20,2Z"/></symbol><symbol id="i-usb" viewBox="0 0 24 24"><path d="M15,7V11H16V13H13V5H15L12,1L9,5H11V13H8V10.93C8.7,10.56 9.2,9.85 9.2,9C9.2,7.78 8.21,6.8 7,6.8C5.78,6.8 4.8,7.78 4.8,9C4.8,9.85 5.3,10.56 6,10.93V13A2,2 0 0,0 8,15H11V18.05C10.29,18.41 9.8,19.15 9.8,20A2.2,2.2 0 0,0 12,22.2A2.2,2.2 0 0,0 14.2,20C14.2,19.15 13.71,18.41 13,18.05V15H16A2,2 0 0,0 18,13V11H19V7H15Z"/></symbol><symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12,21L15.6,16.2C14.6,15.45 13.35,15 12,15C10.65,15 9.4,15.45 8.4,16.2L12,21M12,3C7.95,3 4.21,4.34 1.2,6.6L3,9C5.5,7.12 8.62,6 12,6C15.38,6 18.5,7.12 21,9L22.8,6.6C19.79,4.34 16.05,3 12,3M12,9C9.3,9 6.81,9.89 4.8,11.4L6.6,13.8C8.1,12.67 9.97,12 12,12C14.03,12 15.9,12.67 17.4,13.8L19.2,11.4C17.19,9.89 14.7,9 12,9Z"/></symbol></svg>
+<!-- sprite:end -->
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="./"><span class="mark"><svg class="ic"><use href="#i-cat"/></svg></span>PaperKiosk</a>
+    <nav>
+      <a href="./">Home</a>
+      <a href="#steps">Steps</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="https://github.com/CornillieJ/PaperKiosk"><svg class="ic"><use href="#i-github"/></svg>GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="guide">
+<div class="wrap guide-grid">
+<aside class="toc">
+  <b>On this page</b>
+  <a href="#need">What you need</a>
+  <a href="#windows">On Windows</a>
+  <a href="#s1">1. Download and run</a>
+  <a href="#s2">2. Server settings</a>
+  <a href="#s3">3. Home Assistant</a>
+  <a href="#s4">4. The screen</a>
+  <a href="#s5">5. Start the kiosk</a>
+  <a href="#after">After installing</a>
+  <a href="#commands">Useful commands</a>
+  <a href="#trouble">Troubleshooting</a>
+  <a href="#faq">FAQ</a>
+</aside>
+
+<article>
+<h1>Install guide</h1>
+<p class="lead">About 15 minutes. You run one installer on your server; it asks a few questions, explains each one,
+  and can be run again at any time without losing anything.</p>
+
+<h2 id="need">What you need</h2>
+<table class="need-table">
+  <tr><th>A server</th><td>A computer that's always on, with <b>Docker</b> and <b>Docker Compose</b>: a Raspberry Pi 4
+    or 5, a NAS, a mini PC, a home server. Linux, macOS, or Windows (<a href="#windows">see below</a>). Check with
+    <code>docker compose version</code>.</td></tr>
+  <tr><th>Home Assistant</th><td>On the same network, with your devices assigned to <b>areas</b>
+    (Settings → Areas). Areas become the rooms on the screen.</td></tr>
+  <tr><th>A screen</th><td>One of these:
+    <ul>
+      <li>A device that <b>already runs KUAL</b>. PaperKiosk installs a KUAL extension that shows the kiosk full
+        screen. The <b>USBNetwork</b> extension is optional: with it, setup and updates also work over Wi-Fi.</li>
+      <li><b>Any browser</b>: a tablet, an old phone, an e-reader's built-in browser.</li>
+      <li><b>Another e-paper dashboard</b> or screenshot service that loads a URL.</li>
+    </ul></td></tr>
+</table>
+<div class="note"><svg class="ic"><use href="#i-information-outline"/></svg><p>PaperKiosk starts where KUAL already
+  runs. Getting KUAL onto a device isn't part of this project and isn't covered here (see the <a href="#faq">FAQ</a>).</p></div>
+
+<h2 id="windows">On Windows</h2>
+<p>The installer is a Linux script. On Windows it runs in <b>WSL</b> (Windows Subsystem for Linux), with
+  <b>Docker Desktop</b> for the server. Set that up once, then follow the steps below inside WSL.</p>
+<ol class="sub">
+  <li><b>Install WSL.</b> Open PowerShell as administrator and run <code>wsl --install</code>. Restart when asked;
+    Ubuntu then opens and asks for a Linux username and password.</li>
+  <li><b>Install <a href="https://docs.docker.com/desktop/setup/install/windows-install/">Docker Desktop</a>.</b>
+    In its settings, turn on <b>Start Docker Desktop when you sign in</b> (General) and the integration for Ubuntu
+    (Resources → WSL integration).</li>
+  <li><b>Open Ubuntu</b> from the Start menu and run the commands from step 1 there. Keep PaperKiosk in your Linux
+    home folder, not on <code>C:</code> (<code>/mnt/c/...</code>): the installer refuses that, because the keys can't
+    be protected there.</li>
+  <li><b>Let screens in.</b> When Windows asks whether Docker may accept connections, allow it for private networks,
+    and make sure your home Wi-Fi is set to <b>Private</b> in Windows. If screens still can't connect, run this in
+    PowerShell as administrator:
+    <div class="code wrapc"><pre>New-NetFirewallRule -DisplayName PaperKiosk -Direction Inbound -Protocol TCP -LocalPort 8100 -Action Allow -Profile Private</pre><button type="button" data-copy="New-NetFirewallRule -DisplayName PaperKiosk -Direction Inbound -Protocol TCP -LocalPort 8100 -Action Allow -Profile Private"><svg class="ic"><use href="#i-content-copy"/></svg>Copy</button></div></li>
+  <li><b>Keep the PC awake.</b> Settings → System → Power: set sleep to <b>Never</b> when plugged in. If the PC
+    sleeps, the screens stop updating.</li>
+</ol>
+<p>Good to know on Windows:</p>
+<ul>
+  <li>The address for screens is the <b>PC's own</b> IP on your network; the installer looks it up.</li>
+  <li>A KUAL device over USB shows up as a drive letter. The installer asks for it (like <code>E</code>) and mounts
+    it in WSL; eject it in Windows afterwards.</li>
+  <li>Docker Desktop hides where screens connect from. So screens can't get <b>settings of their own</b> (they all
+    use the main settings), and for Wi-Fi access the installer asks for the device's IP address.</li>
+  <li>A small always-on Linux machine (a Raspberry Pi, a NAS) avoids all of the above, if you have one.</li>
+</ul>
+
+<h2 id="steps">The steps</h2>
+<ol class="steps">
+<li class="step" id="s1">
+  <h3>Download and run the installer</h3>
+  <p>On the server, in a terminal:</p>
+  <div class="code"><pre><span class="p">$ </span>git clone https://github.com/CornillieJ/PaperKiosk.git
+<span class="p">$ </span>cd PaperKiosk
+<span class="p">$ </span>./install.sh</pre><button type="button" data-copy="git clone https://github.com/CornillieJ/PaperKiosk.git
+cd PaperKiosk
+./install.sh"><svg class="ic"><use href="#i-content-copy"/></svg>Copy</button></div>
+  <p>It first checks Docker and Docker Compose and tells you what's missing. It offers to download
+    <a href="https://github.com/charmbracelet/gum">gum</a> (about 5 MB, checksum verified, stored in <code>.bin/</code>)
+    for arrow-key menus; without it you get plain questions.</p>
+  <p>Then choose <b>Automatic</b> (sensible defaults, only the questions it can't answer itself) or <b>Manual</b>
+    (pick the steps, every question asked).</p>
+</li>
+
+<li class="step" id="s2">
+  <h3>Server settings</h3>
+  <ul>
+    <li><b>Port</b>: 8100 by default. Pick another if something already uses it.</li>
+    <li><b>Address for screens</b>: this server's IP on your home network, like <code>http://192.168.1.10:8100</code>.
+      Give the server a fixed IP in your router (a DHCP reservation) so screens keep finding it.</li>
+    <li><b>Time zone</b>: taken from the server; used for the clock and quiet hours.</li>
+    <li><b>Settings password</b>: for the settings page, at least 8 characters. Only a hash is stored.</li>
+  </ul>
+  <p>It also creates the <b>kiosk key</b>: the private part of the link screens use to pair.</p>
+</li>
+
+<li class="step" id="s3">
+  <h3>Connect Home Assistant</h3>
+  <p>The installer looks for Home Assistant itself (on this machine, at <code>homeassistant.local</code>, at the
+    server's IP). If it can't find it, type the address you use in your browser, for example
+    <code>http://192.168.1.20:8123</code>. Home Assistant on the same machine:
+    <code>http://host.docker.internal:8123</code>.</p>
+  <p>Then it needs a <b>long-lived access token</b>. Best practice is a separate user without admin rights:</p>
+  <ol class="sub">
+    <li>In Home Assistant: <b>Settings → People → Users → Add user</b>. Name it <code>PaperKiosk</code>, set a long
+      password, turn <b>Administrator</b> off and <b>Can only log in from the local network</b> on. No Users tab?
+      Enable <b>Advanced mode</b> in your profile first.</li>
+    <li>Log in as that user (a private browser window is easiest), open the profile (bottom left) →
+      <b>Security</b>.</li>
+    <li>Under <b>Long-lived access tokens</b>, choose <b>Create token</b>, name it <code>PaperKiosk</code>, and copy
+      it.</li>
+    <li>Paste it into the installer. It tests the connection and shows what it found.</li>
+  </ol>
+  <p>Last question: which room the screen is in. That room's devices show on Home until you pick your own
+    cards.</p>
+</li>
+
+<li class="step" id="s4">
+  <h3>The screen</h3>
+  <p>The installer starts the server, then asks what kind of screen you have.</p>
+  <div class="options">
+    <div class="option">
+      <h4><svg class="ic"><use href="#i-usb"/></svg>KUAL device, over USB</h4>
+      <p>Connect it to the server with a data cable. The installer finds the drive, copies
+        <code>extensions/paperkiosk</code> with your personal kiosk link in it, and ejects the drive.</p>
+    </div>
+    <div class="option">
+      <h4><svg class="ic"><use href="#i-wifi"/></svg>KUAL device, over Wi-Fi</h4>
+      <p>If USBNetwork's SSH already works. The installer adds its own SSH key, copies the extension and can do the
+        next step for you.</p>
+    </div>
+    <div class="option">
+      <h4><svg class="ic"><use href="#i-folder-outline"/></svg>KUAL device, copy it yourself</h4>
+      <p>The installer prepares <code>data/kindle-extension/paperkiosk</code>. Copy that folder into the device's
+        <code>extensions</code> folder.</p>
+    </div>
+    <div class="option">
+      <h4><svg class="ic"><use href="#i-monitor-cellphone"/></svg>Browser or e-paper dashboard</h4>
+      <p>You get the kiosk link (and a QR code if <code>qrencode</code> is installed). Nothing to install, and the
+        KUAL steps are skipped.</p>
+    </div>
+  </div>
+  <p><b>Wi-Fi access (optional).</b> For KUAL devices the installer asks whether this server may log in over Wi-Fi
+    (USBNetwork, SSH on Wi-Fi only, with a key that only this server has). That lets it start the kiosk, update it and
+    take screenshots. USBNetwork's SSH also accepts the device's root password, so only use it on a network you
+    trust.</p>
+  <p><b>Browsers and dashboards.</b> Open the link once in a browser and add it to the home screen; the browser
+    remembers it. Dashboards that load a URL can use the link as it is: it works on every request, also without
+    cookies. Pages are about 600 × 750 CSS pixels and scale to the screen.</p>
+</li>
+
+<li class="step" id="s5">
+  <h3>Start the kiosk</h3>
+  <p>KUAL devices only. With Wi-Fi access, the installer starts it for you. Otherwise open <b>KUAL → PaperKiosk →
+    Start kiosk</b> on the device. The installer waits until the device connects and confirms it worked.</p>
+  <p><b>Start kiosk</b> opens PaperKiosk full screen, keeps the screen on, and restarts it every night at 4:00 to
+    keep it fresh. <b>Stop kiosk</b> lets the device sleep again.</p>
+</li>
+</ol>
+
+<h2 id="after">After installing</h2>
+<ul>
+  <li><b>Settings</b>: open <code>http://your-server:8100/config</code> and log in. Choose up to six cards for
+    Home, add nicknames and icons, pick the pet and home style, set quiet hours. New Home Assistant devices wait
+    under <b>New in Home Assistant</b> until you tick <b>Show</b>.</li>
+  <li><b>Keep the screen charging</b>; it stays on.</li>
+  <li><b>After the device restarts</b>, open <b>KUAL → PaperKiosk → Start kiosk</b> again.</li>
+  <li><b>Locks and garage doors</b> can be locked and closed. Unlocking or opening them is off until you allow it
+    per device in the settings.</li>
+</ul>
+
+<h2 id="commands">Useful commands</h2>
+<p>Run them in the PaperKiosk folder. <code>./install.sh</code> on its own shows a menu with most of these.</p>
+<table class="cmd-table">
+  <tr><td><code>./install.sh --add-screen</code></td><td>Add another screen, optionally with its own room and cards</td></tr>
+  <tr><td><code>./scripts/update.sh</code></td><td>Get the newest version, rebuild, update KUAL devices it can reach</td></tr>
+  <tr><td><code>./scripts/10-configure.sh --new-password</code></td><td>Change the settings password</td></tr>
+  <tr><td><code>./scripts/20-home-assistant.sh</code></td><td>Change the Home Assistant address or token</td></tr>
+  <tr><td><code>./scripts/40-kindle-install.sh</code></td><td>Copy the KUAL extension to a device again</td></tr>
+  <tr><td><code>./scripts/10-configure.sh --new-key</code></td><td>New kiosk key: un-pairs every screen</td></tr>
+  <tr><td><code>./install.sh --yes</code></td><td>Unattended install; answers come from environment variables
+    (<code>ADMIN_PASSWORD</code>, <code>HA_URL</code>, <code>HA_TOKEN</code>, <code>SCREEN</code>, ...)</td></tr>
+</table>
+
+<h2 id="trouble">Troubleshooting</h2>
+<dl class="trouble">
+  <dt>"This screen isn't paired"</dt>
+  <dd>The screen doesn't have the kiosk link yet. Open the link again, or run step 4 again for KUAL devices.</dd>
+  <dt>"I can't reach Home Assistant"</dt>
+  <dd>The message underneath says why. Usually the token was removed (run <code>./scripts/20-home-assistant.sh</code>)
+    or the address doesn't work from inside Docker: use the IP address instead of <code>homeassistant.local</code>.</dd>
+  <dt>The device doesn't show up in step 5</dt>
+  <dd>Check that it's on the same Wi-Fi and that <code>http://your-server:8100/health</code> opens in another browser
+    (a firewall may block the port).</dd>
+  <dt>A device is missing on the screen</dt>
+  <dd>It's probably waiting under <b>New in Home Assistant</b> in the settings, or it has no area in Home Assistant.</dd>
+</dl>
+<p>More in <a href="https://github.com/CornillieJ/PaperKiosk/blob/main/docs/troubleshooting.md">troubleshooting.md</a>.</p>
+
+<h2 id="faq">FAQ</h2>
+<div class="faq">
+  <details><summary>Can you help me jailbreak my Kindle, or put KUAL on it?</summary><div><p><b>No.</b> PaperKiosk
+    starts where KUAL already runs, and this project doesn't explain, provide or support jailbreaking or modifying
+    devices. Questions about that won't be answered here or on GitHub.</p><p>If you want to read about it, guides
+    exist online, but that's your own decision and your own risk: it can void warranties, break devices, and isn't
+    legal everywhere. Every other kind of screen works without it: any browser or e-paper dashboard can use the
+    kiosk link.</p></div></details>
+  <details><summary>Which devices does the KUAL extension work on?</summary><div>It was developed for a 1072 × 1448
+    e-ink screen with the mesquite web engine (WebKit 534) and firmware 5.x. Other devices running KUAL may behave
+    differently. Which device you use is up to you.</div></details>
+  <details><summary>Do I need to know Linux?</summary><div>A little: you run a few commands in a terminal. The
+    installer checks the rest and explains every question. PaperKiosk needs Docker, so on Home Assistant OS it has
+    to run on another computer: a NAS, a Raspberry Pi, or a Windows PC that stays on (<a href="#windows">see On
+    Windows</a>).</div></details>
+  <details><summary>Can I use it away from home?</summary><div>Don't forward its port in your router. Use a VPN
+    (WireGuard, Tailscale, ...) if you want to reach it from outside.</div></details>
+  <details><summary>Is it safe to put on a wall?</summary><div><p>Yes. Anyone standing at the screen can only do
+    what the screen shows: switch the devices on it, change brightness, run the scenes you picked. They can't open
+    the settings (that needs your password, on another device), can't reach anything else in Home Assistant, and
+    can't unlock a door or open the garage unless you allowed that for the device.</p>
+    <p>Want less on it? Hide devices or whole rooms in the settings. If the screen ever goes missing, run
+    <code>./scripts/10-configure.sh --new-key</code>: its link stops working, and you re-pair your other
+    screens. More in <a href="https://github.com/CornillieJ/PaperKiosk/blob/main/SECURITY.md">SECURITY.md</a>.</p></div></details>
+</div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-main"><a class="logo" href="./"><span class="mark"><svg class="ic"><use href="#i-cat"/></svg></span>PaperKiosk</a>
+      <span>By <a href="https://github.com/CornillieJ">CornillieJ</a> · MIT licensed ·
+        <a href="https://github.com/CornillieJ/PaperKiosk">GitHub</a> · <a href="install.html">Install guide</a></span></p>
+    <p class="fine">PaperKiosk is made to work with KUAL. Which device you run it on is your own business. This project
+      does not condone, explain or support jailbreaking or otherwise modifying devices. Not affiliated with Amazon or
+      Home Assistant. Icons: Material Design Icons (Apache 2.0). Font: Nunito (SIL OFL).</p>
+  </div>
+</footer>
+
+
+<script>
+// Copy buttons. Pages runs public sites in a sandbox where the clipboard API may be refused: then select the text.
+document.querySelectorAll('button[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var text = b.getAttribute('data-copy'), label = b.lastChild;
+    function done(msg) { label.textContent = msg; b.classList.add('done');
+      setTimeout(function () { label.textContent = 'Copy'; b.classList.remove('done') }, 1600) }
+    function select() { var r = document.createRange(); r.selectNodeContents(b.parentNode.querySelector('pre'));
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { done(document.execCommand('copy') ? 'Copied' : 'Selected') } catch (e) { done('Selected') } }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done('Copied') }, select)
+    } else { select() }
+  });
+});
+</script>
+</body>
+</html>

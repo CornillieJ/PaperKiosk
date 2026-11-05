@@ -1,0 +1,7 @@
+# Unix line endings everywhere, also when cloned on Windows: the scripts run in bash/WSL and on KUAL devices.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ttf binary
+*.woff binary
+*.woff2 binary

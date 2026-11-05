@@ -1,0 +1,28 @@
+# PaperKiosk: a Home Assistant dashboard for e-ink screens (a KUAL extension, any browser, other e-paper dashboards).
+# Set up with ./install.sh. Settings live in .env (made by the installer, see .env.example), secrets in ./secrets,
+# the dashboard's settings in ./data/config.json (edit them at http://<this server>:8100/config).
+services:
+  paperkiosk:
+    container_name: ${PAPERKIOSK_CONTAINER:-paperkiosk}
+    build: ./server
+    image: paperkiosk
+    restart: unless-stopped
+    user: "${PUID:-1000}:${PGID:-1000}"     # who owns ./data and ./secrets on this machine
+    ports:
+      # LAN only: don't forward this port in your router. PAPERKIOSK_BIND=127.0.0.1 if a reverse proxy sits in front.
+      - "${PAPERKIOSK_BIND:-0.0.0.0}:${PAPERKIOSK_PORT:-8100}:8080"
+    environment:
+      HA_URL: ${HA_URL:-http://homeassistant.local:8123}
+      TZ: ${TZ:-UTC}
+      PAPERKIOSK_URL: ${PAPERKIOSK_URL:-}   # shown on the kiosk's Settings tab ("" = the address it was opened with)
+    extra_hosts:
+      - host.docker.internal:host-gateway   # HA on this same machine: HA_URL=http://host.docker.internal:8123
+    volumes:
+      - ./data:/config
+      - ./secrets:/run/secrets:ro           # ha_token, kiosk_key, admin_password (the Kindle's SSH key is in ./ssh, not here)
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    pids_limit: 128

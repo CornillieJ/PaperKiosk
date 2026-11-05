@@ -1,0 +1,42 @@
+# Publishes the website (site/) to GitHub Pages: https://cornilliej.github.io/PaperKiosk/
+# Runs when site/ changes on main, or by hand (Actions > Website > Run workflow).
+name: Website
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: pages
+        uses: actions/configure-pages@v6
+      - name: Prepare the site
+        run: |
+          mkdir -p _site
+          cp -r site/index.html site/install.html site/style.css site/fonts.css site/img _site/
+          # The pages name their own address for link previews (og:image, canonical): use this one here.
+          base="${{ steps.pages.outputs.base_url }}/"
+          sed -i "s#https://www.stormwolf.space/paperkiosk/#${base}#g" _site/*.html
+          grep -c "$base" _site/index.html
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v5
