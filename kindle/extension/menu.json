@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "name": "PaperKiosk",
+      "priority": 0,
+      "items": [
+        {
+          "name": "Start kiosk (fullscreen, screen stays on)",
+          "priority": 1,
+          "action": "bin/start.sh"
+        },
+        {
+          "name": "Stop kiosk (allow sleep again)",
+          "priority": 2,
+          "action": "bin/stop.sh"
+        },
+        {
+          "name": "Diagnostics (writes paperkiosk-diag.txt)",
+          "priority": 9,
+          "action": "bin/diag.sh"
+        },
+        {
+          "name": "Enable SSH (for the server)",
+          "priority": 5,
+          "action": "bin/ssh.sh"
+        },
+        {
+          "name": "Uninstall kiosk app (registry entry)",
+          "priority": 8,
+          "action": "bin/unregister.sh"
+        }
+      ]
+    }
+  ]
+}

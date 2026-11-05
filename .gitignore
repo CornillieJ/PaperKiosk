@@ -1,0 +1,7 @@
+# Your own setup: never commit these.
+.env
+secrets/
+data/
+.bin/
+__pycache__/
+*.pyc

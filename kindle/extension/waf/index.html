@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<!-- Full-screen frame for the kiosk. __KIOSK_URL__ is replaced by the installer with the server's kiosk link
+     (http://<server>:8100/?key=...; scripts/40-kindle-install.sh). The page scales itself for this app (see KINDLE_ZOOM in server/app/kawaii.py).
+     Don't scale this iframe with a CSS transform: mesquite (WebKit 534) segfaults on taps into it. -->
+<style>html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#fff}
+iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}</style>
+</head><body>
+<iframe id="k" src="__KIOSK_URL__"></iframe>
+</body></html>
